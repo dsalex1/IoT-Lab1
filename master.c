@@ -28,7 +28,6 @@ PROCESS_THREAD(lab1_master, ev, data)
   PROCESS_BEGIN();
 
   static struct etimer et;
-  static uint8_t counter = 0;
 
   etimer_set(&et, CLOCK_SECOND);
 
@@ -47,7 +46,6 @@ PROCESS_THREAD(lab1_master, ev, data)
       else if (rnd == 2)
         toggleLedAndBroadcast(LEDS_YELLOW);
 
-      counter++;
       etimer_set(&et, CLOCK_SECOND);
     }
   }
