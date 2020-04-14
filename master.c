@@ -33,6 +33,7 @@
 #include "dev/leds.h"
 #include "sys/etimer.h"
 
+#include <random.h>
 #include <stdio.h>
 /*---------------------------------------------------------------------------*/
 PROCESS(leds_example, "LED HAL Example");
@@ -54,11 +55,12 @@ PROCESS_THREAD(leds_example, ev, data)
 
     if (ev == PROCESS_EVENT_TIMER && data == &et)
     {
-      if ((counter & 3) == 0)
+      uint8_t rnd = random_rand() % 3;
+      if (rnd == 0)
         leds_toggle(LEDS_RED);
-      else if ((counter & 3) == 1)
+      else if (rnd == 1)
         leds_toggle(LEDS_GREEN);
-      else if ((counter & 3) == 2)
+      else if (rnd == 2)
         leds_toggle(LEDS_YELLOW);
 
       counter++;
