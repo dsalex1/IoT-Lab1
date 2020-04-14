@@ -30,8 +30,12 @@
  */
 /*---------------------------------------------------------------------------*/
 #include "contiki.h"
-#include "dev/leds.h"
 #include "sys/etimer.h"
+
+#include "dev/leds.h"
+
+#include "net/netstack.h"
+#include "net/nullnet/nullnet.h"
 
 #include <random.h>
 #include <stdio.h>
@@ -39,6 +43,17 @@
 PROCESS(leds_example, "LED HAL Example");
 AUTOSTART_PROCESSES(&leds_example);
 /*---------------------------------------------------------------------------*/
+
+void toggleLedAndBroadcast(uint16_t led)
+{
+  leds_toggle(led);
+  nullnet_buf = (uint8_t *)&led;
+  nullnet_len = sizeof(led);
+  NETSTACK_NETWORK.output(NULL);
+}
+
+/*---------------------------------------------------------------------------*/
+
 PROCESS_THREAD(leds_example, ev, data)
 {
   PROCESS_BEGIN();
@@ -57,11 +72,11 @@ PROCESS_THREAD(leds_example, ev, data)
     {
       uint8_t rnd = random_rand() % 3;
       if (rnd == 0)
-        leds_toggle(LEDS_RED);
+        toggleLedAndBroadcast(LEDS_RED);
       else if (rnd == 1)
-        leds_toggle(LEDS_GREEN);
+        toggleLedAndBroadcast(LEDS_GREEN);
       else if (rnd == 2)
-        leds_toggle(LEDS_YELLOW);
+        toggleLedAndBroadcast(LEDS_YELLOW);
 
       counter++;
       etimer_set(&et, CLOCK_SECOND);

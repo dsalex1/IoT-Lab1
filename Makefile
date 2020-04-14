@@ -1,8 +1,11 @@
-CONTIKI_PROJECT = leds-example
+CONTIKI_PROJECT = Lab1
 CONTIKI = ../..
 
 MODULES_REL += $(TARGET)
 
 all: $(CONTIKI_PROJECT)
+
+PLATFORMS_EXCLUDE = nrf52dk
+MAKE_NET = MAKE_NET_NULLNET
 
 include $(CONTIKI)/Makefile.include
