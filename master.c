@@ -27,7 +27,7 @@ void input_callback(const void *data, uint16_t len,
     int8_t srcId = src->u8[0];
     if (srcId > 15)
     {
-      printf("ERROR, cant process data from nodes with id>15: %d", srcId);
+      printf("ERROR, cant process data from nodes with id>15: %d\n", srcId);
       return;
     }
 

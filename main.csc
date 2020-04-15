@@ -97,7 +97,7 @@
       </interface_config>
       <interface_config>
         org.contikios.cooja.mspmote.interfaces.MspMoteID
-        <id>2</id>
+        <id>17</id>
       </interface_config>
       <motetype_identifier>slave</motetype_identifier>
     </mote>
