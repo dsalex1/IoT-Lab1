@@ -8,7 +8,6 @@
   <simulation>
     <title>Lab 1</title>
     <speedlimit>1.0</speedlimit>
-    <randomseed>123456</randomseed>
     <motedelay_us>1000000</motedelay_us>
     <radiomedium>
       org.contikios.cooja.radiomediums.UDGM
@@ -158,12 +157,37 @@
     </mote>
   </simulation>
   <plugin>
-    org.contikios.cooja.plugins.SimControl
-    <width>280</width>
-    <z>0</z>
-    <height>159</height>
-    <location_x>498</location_x>
-    <location_y>65</location_y>
+    org.contikios.cooja.plugins.Visualizer
+    <plugin_config>
+      <moterelations>true</moterelations>
+      <skin>org.contikios.cooja.plugins.skins.IDVisualizerSkin</skin>
+      <skin>org.contikios.cooja.plugins.skins.GridVisualizerSkin</skin>
+      <skin>org.contikios.cooja.plugins.skins.TrafficVisualizerSkin</skin>
+      <skin>org.contikios.cooja.plugins.skins.UDGMVisualizerSkin</skin>
+      <skin>org.contikios.cooja.plugins.skins.LEDVisualizerSkin</skin>
+      <viewport>5.66173822429273 0.0 0.0 5.66173822429273 87.12570753643107 -2.8715020951121466</viewport>
+    </plugin_config>
+    <width>400</width>
+    <z>6</z>
+    <height>578</height>
+    <location_x>1</location_x>
+    <location_y>1</location_y>
+  </plugin>
+  <plugin>
+    org.contikios.cooja.plugins.TimeLine
+    <plugin_config>
+      <mote>0</mote>
+      <mote>1</mote>
+      <mote>2</mote>
+      <mote>3</mote>
+      <mote>4</mote>
+      <zoomfactor>500.0</zoomfactor>
+    </plugin_config>
+    <width>1400</width>
+    <z>7</z>
+    <height>166</height>
+    <location_x>0</location_x>
+    <location_y>648</location_y>
   </plugin>
   <plugin>
     org.contikios.cooja.plugins.Visualizer
@@ -174,7 +198,7 @@
       <skin>org.contikios.cooja.plugins.skins.TrafficVisualizerSkin</skin>
       <skin>org.contikios.cooja.plugins.skins.UDGMVisualizerSkin</skin>
       <skin>org.contikios.cooja.plugins.skins.LEDVisualizerSkin</skin>
-      <viewport>3.586028084955578 0.0 0.0 3.586028084955578 118.64947921305699 27.21133728434434</viewport>
+      <viewport>3.834397281488642 0.0 0.0 3.834397281488642 97.70511126538933 84.18102783369022</viewport>
     </plugin_config>
     <width>400</width>
     <z>1</z>
@@ -192,8 +216,8 @@
     <width>973</width>
     <z>2</z>
     <height>279</height>
-    <location_x>399</location_x>
-    <location_y>290</location_y>
+    <location_x>405</location_x>
+    <location_y>300</location_y>
   </plugin>
   <plugin>
     org.contikios.cooja.plugins.TimeLine
@@ -227,6 +251,14 @@
     <height>399</height>
     <location_x>808</location_x>
     <location_y>-9</location_y>
+  </plugin>
+  <plugin>
+    org.contikios.cooja.plugins.SimControl
+    <width>280</width>
+    <z>0</z>
+    <height>160</height>
+    <location_x>471</location_x>
+    <location_y>29</location_y>
   </plugin>
 </simconf>
 
